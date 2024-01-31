@@ -32,7 +32,7 @@ app.get('/data', async (req, res) => {
     
     
   }) */
-  res.send(getrows.data)
+  res.send({row:getrows.data.values})
 })
 
 app.listen(prt, (req, res) => {
