@@ -19,11 +19,10 @@ app.get('/data', async (req, res) => {
     spreadsheetId,
     range: 'Feuille 1'
   })
-<<<<<<< Updated upstream
- 
-=======
 
->>>>>>> Stashed changes
+ 
+
+
   /* const writterows = await gsheets.spreadsheets.values.append({
     auth,
     spreadsheetId,
@@ -36,9 +35,9 @@ app.get('/data', async (req, res) => {
     
     
   }) */
-<<<<<<< Updated upstream
+
   res.send(getrows.data.values)
-=======
+
   const rows = getrows.data.values
   if (rows && rows.length > 0) {
     // Create a new array and fill it with the second element of each subarray
@@ -52,7 +51,7 @@ app.get('/data', async (req, res) => {
   }
 
   console.log(rows)
->>>>>>> Stashed changes
+
 })
 
 app.listen(prt, (req, res) => {
