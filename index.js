@@ -36,8 +36,7 @@ app.get('/data', async (req, res) => {
     
   }) */
 
-  res.send(getrows.data.values)
-
+  
   const rows = getrows.data.values
   if (rows && rows.length > 0) {
     // Create a new array and fill it with the second element of each subarray
