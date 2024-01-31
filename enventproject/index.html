@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 500px; /* Set the body height to 100% of the viewport height */
+        width: 250px;
+        margin: 0; /* Remove default margin to prevent extra space */
+        display: flex;
+        flex-direction: column;
+      }
+      #div2 {
+        background-color: aquamarine;
+        flex: 2;
+        height: 100%; /* Take up 100% of the available height */
+      }
+      #div1 {
+        background-color: bisque;
+        flex: 1;
+        height: 100%; /* Take up 100% of the available height */
+      }
+      #timelinebox {
+        display: flex;
+        flex-direction: row;
+        background-color: rgb(223, 216, 208);
+        position: relative;
+        height: 20px; /* Take up 100% of the available height */
+      }
+      #timeline {
+        display: flex;
+        flex-direction: row;
+
+        position: absolute;
+
+        /* Take up 100% of the available height */
+      }
+      #timelinedot {
+        background-color: rgb(242, 31, 12);
+
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+        margin-top: -10px;
+        margin-left: -5px;
+      }
+      .dot {
+        background-color: rgb(242, 31, 12);
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+      }
+      #timelinerect {
+        background-color: rgb(242, 31, 12);
+        height: 20px;
+        width: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <div id="timelinebox">
+      <div id="timeline">
+        <div id="timelinerect"></div>
+        <div id="timelinedot"></div>
+      </div>
+    </div>
+    <div id="div2"></div>
+  </body>
+  <script>
+    const timeline = document.getElementById("timeline");
+    const video = document.getElementById("div1");
+    video.addEventListener("pointerdown", (e) => {
+      console.log(e);
+      let dot = document.createElement("div");
+      dot.classList.add("dot");
+      postiondot(dot, e);
+      dot.id = e.pointerId;
+      document.body.append(dot);
+    });
+    function postiondot(dot, e) {
+      dot.style.height = `${e.height * 5}px`;
+      dot.style.width = `${e.width * 5}px`;
+      console.log(e.PageX, e.PageY, e.width);
+      dot.style.top = e.clientY;
+      dot.style.right = e.clientX;
+    }
+    video.addEventListener("pointerup", (e) => {
+      console.log(e);
+    });
+  </script>
+</html>
