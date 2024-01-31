@@ -19,7 +19,7 @@ app.get('/data', async (req, res) => {
     spreadsheetId,
     range: 'Feuille 1'
   })
-  res.send(getrows.data)
+ 
   /* const writterows = await gsheets.spreadsheets.values.append({
     auth,
     spreadsheetId,
